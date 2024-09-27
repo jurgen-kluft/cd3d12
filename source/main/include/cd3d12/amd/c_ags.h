@@ -1,7 +1,9 @@
 #ifndef __CGFX_AGS_H__
 #define __CGFX_AGS_H__
 
+#include "cd3d12/d3d12.h"
 #include "cd3d12/d3dx12.h"
+
 #include "cd3d12/amd/c_ags_sdk.h"
 
 namespace ags
