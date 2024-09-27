@@ -6,13 +6,13 @@ import (
 
 const (
 	repo_path = "github.com\\jurgen-kluft\\"
-	repo_name = "cmacos"
+	repo_name = "cd3d12"
 )
 
 func GetPackage() *denv.Package {
 	name := repo_name
 
-	// The main (cmacos) package
+	// The main (cd3d12) package
 	mainpkg := denv.NewPackage(name)
 
 	// library
