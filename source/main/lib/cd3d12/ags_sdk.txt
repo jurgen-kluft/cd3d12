@@ -1,0 +1,4 @@
+repo: https://github.com/GPUOpen-LibrariesAndSDKs/AGS_SDK
+commit: f4e655ed363a91a7e0af35f5aecffa175c79a748
+Jul 18, 2024
+AGS 6.2 signed

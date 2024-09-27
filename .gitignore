@@ -18,6 +18,8 @@ cmake-build-debug/
 !*.c
 !*.h
 !*.inl
+!*.lib
+!*.dll
 
 !*.zig
 
