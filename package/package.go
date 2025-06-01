@@ -11,21 +11,27 @@ const (
 )
 
 func GetPackage() *denv.Package {
-	// Dependencies
+	name := repo_name
+
+	// dependencies
 	unittestpkg := cunittest.GetPackage()
 
-	// The main (cd3d12) package
-	mainpkg := denv.NewPackage(repo_name)
+	// main package
+	mainpkg := denv.NewPackage(repo_path, repo_name)
 
-	// library
-	mainlib := denv.SetupCppLibProject(repo_name, repo_path+repo_name)
+	// main library
+	mainlib := denv.SetupCppLibProject(mainpkg, name)
 
-	// unittest project
-	maintest := denv.SetupDefaultCppTestProject(repo_name+"_test", repo_path+repo_name)
-	maintest.AddDependencies(unittestpkg.GetMainLib()...)
-	maintest.Dependencies = append(maintest.Dependencies, mainlib)
+	// test library
+	testlib := denv.SetupCppTestLibProject(mainpkg, name)
+
+	// unittest
+	maintest := denv.SetupCppTestProject(mainpkg, name)
+	maintest.AddDependencies(unittestpkg.GetTestLib()...)
+	maintest.AddDependency(testlib)
 
 	mainpkg.AddMainLib(mainlib)
+	mainpkg.AddTestLib(testlib)
 	mainpkg.AddUnittest(maintest)
 	return mainpkg
 }
